@@ -33,5 +33,9 @@ namespace winrt::DrawTest::implementation
     void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
     {
         myButton().Content(box_value(L"Clicked"));
+
+        // Winui2D create drawing canvas
+
+        
     }
 }

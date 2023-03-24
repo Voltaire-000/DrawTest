@@ -12,5 +12,9 @@
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
+
+        <Canvas x:Name="mx_canvas" Width="200" Height="200" Background="LightGray" >
+            <Line x:Name="mx_line" Stroke="Black" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+        </Canvas>
     </StackPanel>
 </Window>
