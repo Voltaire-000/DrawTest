@@ -40,19 +40,16 @@ namespace winrt::DrawTest::implementation
     {
         myButton().Content(box_value(L"Clicked"));
 
-        // draw line using mx_line
-        mx_line().X1(0);
-        mx_line().Y1(0);
-        mx_line().X2(100);
-        mx_line().Y2(100);
-        mx_line().Stroke(Microsoft::UI::Xaml::Media::SolidColorBrush(Windows::UI::Colors::Red()));
-        mx_line().StrokeThickness(5);
-        mx_line().StrokeStartLineCap(Microsoft::UI::Xaml::Media::PenLineCap::Round);
-        mx_line().StrokeEndLineCap(Microsoft::UI::Xaml::Media::PenLineCap::Round);
-        mx_line().StrokeLineJoin(Microsoft::UI::Xaml::Media::PenLineJoin::Round);
-        mx_line().StrokeMiterLimit(1);
-        MainWindow::mx_canvas().Children().Append(mx_line());
-        MainWindow::mx_canvas().Children().Clear();
-               
+        Line mx_line;
+        Canvas mx_canvas;
+
+        mx_line.X1(10);
+        mx_line.Y1(10);
+        mx_line.X2(100);
+        mx_line.Y2(150);
+        mx_line.StrokeThickness(5);
+        mx_line.Stroke(Microsoft::UI::Xaml::Media::SolidColorBrush(Microsoft::UI::Colors::Aqua()));
+        mx_canvas.Children().Append(mx_line);
+              
     }
 }
