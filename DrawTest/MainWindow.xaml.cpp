@@ -19,6 +19,8 @@ using namespace Microsoft::UI::Xaml::Media;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
+
+
 namespace winrt::DrawTest::implementation
 {
     MainWindow::MainWindow()
@@ -36,20 +38,41 @@ namespace winrt::DrawTest::implementation
         throw hresult_not_implemented();
     }
 
+    void DrawLine()
+    {
+		Microsoft::UI::Xaml::Controls::Canvas mx_canvas;
+		Microsoft::UI::Xaml::Shapes::Line mx_line;
+		mx_line.X1(0);
+		mx_line.Y1(0);
+		mx_line.X2(mx_canvas.ActualWidth());
+		mx_line.Y2(mx_canvas.ActualHeight());
+		mx_line.StrokeThickness(5);
+		mx_line.Stroke(Microsoft::UI::Xaml::Media::SolidColorBrush(Microsoft::UI::Colors::Aqua()));
+		mx_canvas.Children().Append(mx_line);
+
+        //put the content on the canvas
+        Microsoft::UI::Xaml::Window window = Microsoft::UI::Xaml::Window::Current();
+        window.Content(mx_canvas);
+        window.Activate();
+	}
+
     void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
     {
         myButton().Content(box_value(L"Clicked"));
 
-        Line mx_line;
-        Canvas mx_canvas;
+        DrawLine();
 
-        mx_line.X1(10);
-        mx_line.Y1(10);
-        mx_line.X2(100);
-        mx_line.Y2(150);
-        mx_line.StrokeThickness(5);
-        mx_line.Stroke(Microsoft::UI::Xaml::Media::SolidColorBrush(Microsoft::UI::Colors::Aqua()));
-        mx_canvas.Children().Append(mx_line);
+        //Microsoft::UI::Xaml::Controls::Canvas mx_canvas;
+        //Microsoft::UI::Xaml::Shapes::Line mx_line;
+
+        //mx_line.X1(0);
+        //mx_line.Y1(0);
+        //mx_line.X2(mx_canvas.ActualWidth());
+        //mx_line.Y2(mx_canvas.ActualHeight());
+        //mx_line.StrokeThickness(5);
+        //mx_line.Stroke(Microsoft::UI::Xaml::Media::SolidColorBrush(Microsoft::UI::Colors::Aqua()));
+        //mx_canvas.Children().Append(mx_line);
               
     }
+
 }
